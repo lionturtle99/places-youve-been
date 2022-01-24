@@ -30,37 +30,52 @@ ListOfTrips.prototype.FindTrip = function (id) {
 };
 
 // Business Logic for Trips()
-function Trip(city, state, country, date) {
+function Trip(city, state, country, date, highlight, notes) {
   this.city = city;
   this.state = state;
   this.country = country;
   this.date = date;
-  this.highlights = {};
-  this.notes = [];
+  this.highlights = highlight;
+  this.notes = notes;
 }
 
 Trip.prototype.tripOverview = function () {
   return this.city + ", " + this.state + " " + this.date;
 };
 
-Trip.prototype.addHighlight = function (highlight) {
-  highlight = this.highlight[title];
+Trip.prototype.findHighlight = function () {
+  highlight = this.highlights[title];
+  return highlight;
 };
 
 function Highlight(title, notes) {
   this.title = title;
-  this.notes = [];
+  this.notes = notes;
 }
 
-let bibi = new Highlight("Bibi-togo", ("the best bibibap in town", "must go"));
-let hawaii = new Trip(
-  "honolulu",
-  "hawaii",
-  "usa",
-  "12/24/21",
-  addHighlight(bibi),
-  ("note1", "note2")
-);
-let list = new ListOfTrips();
-list.addTrip(hawaii);
-list.trips;
+//UI Logic
+
+$(document).ready(function () {
+  let list = new ListOfTrips();
+  $("form#form1").submit(function (event) {
+    event.preventDefault();
+    const city = $("input#city").val();
+    const state = $("input#state").val();
+    const country = $("input#country").val();
+    const date = $("input#date").val();
+    const highlightTitle = $("input#title").val();
+    const highlightNotes = $("input#highlight-notes").val();
+    const notes = $("input#notes").val();
+    let newTrip = new Trip(
+      city,
+      state,
+      country,
+      date,
+      highlightTitle,
+      highlightNotes,
+      notes
+    );
+    list.addTrip(newTrip);
+    console.log(list.trips);
+  });
+});

@@ -1,0 +1,28 @@
+.jumbotron {
+  text-align: center;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+div.user-input {
+  justify-self: end;
+}
+
+.highlight-section {
+  display: grid;
+}
+.highlight-section h5 {
+  text-align: center;
+}
+.output-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+  margin: auto;
+  width: 60%;
+}
+.output-div {
+  border: solid green 1px;
+}

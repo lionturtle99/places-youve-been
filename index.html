@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="css/styles.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Places I've Been</title>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <h1>Places I've Been!</h1>
+    </div>
+    <form id="form1">
+      <div class="container">
+        <div class="user-input">
+          <label for="city">city</label>
+          <input id="city" type="text" />
+        </div>
+        <div class="user-input">
+          <label for="state">state</label>
+          <input id="state" type="text" />
+        </div>
+        <div class="user-input">
+          <label for="country">country</label>
+          <input id="country" type="text" />
+        </div>
+        <div class="user-input">
+          <label for="date">date</label>
+          <input id="date" type="text" />
+        </div>
+        <div class="highlight-section">
+          <h5>Hightlights</h5>
+          <div class="user-input">
+            <label for="title">title</label>
+            <input id="title" type="text" />
+          </div>
+          <div class="user-input">
+            <label for="highlight-notes">notes</label>
+            <input id="highlight-notes" type="text" />
+          </div>
+        </div>
+        <div class="user-input">
+          <label for="notes">notes</label>
+          <input id="notes" type="text" />
+        </div>
+      </div>
+    </form>
+    <div class="button">
+      <button type="submit" class="btn-success">Submit</button>
+    </div>
+    <div class="output-container">
+      <div class="output-div">
+        <h3>Trips</h3>
+        <ul id="list-ul"></ul>
+      </div>
+      <div class="output-div hidden">
+        <h5 id="trip"></h5>
+        <ul id="trip-ul">
+          <li id="city-li"></li>
+          <li id="state-li"></li>
+          <li id="country-li"></li>
+          <li id="highlight-li"></li>
+          <li id="notes-li"></li>
+        </ul>
+      </div>
+      <div class="output-div hidden">
+        <h5 id="hightlight-title"></h5>
+        <p id="highlight-notes"></p>
+      </div>
+    </div>
+  </body>
+</html>
