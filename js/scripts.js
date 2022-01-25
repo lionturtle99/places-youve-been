@@ -55,8 +55,48 @@ function Highlight(title, notes) {
 
 //UI Logic
 
+function displayTrips(list) {
+  console.log(list);
+  let tripsToBeDisplayed = $("ul#list-ul").val();
+  let htmlForDisplay = "";
+  Object.keys(list.trips).forEach(function (key) {
+    conmouseleave.log(key);
+    const trip = list.trips(key);
+    htmlForDisplay += "<li id=" + trip.id + ">" + trip.city + "</li>";
+  });
+  tripsToBeDisplayed.html(htmlForDisplay);
+}
+function displayTripDetails(tripId) {
+  const trip = list.FindTrip(tripId);
+  $("#trip-details").show();
+  $("#trip-city").html(trip.city);
+  $("#city-li").html(trip.city);
+  $("#state-li").html(trip.state);
+  $("#country-li").html(trip.country);
+  $("#date-li").html(trip.date);
+  $("#highlights-li").html(trip.highlights);
+  $("#notes-li").html(trip.notes);
+  let buttons = $("#buttons");
+  buttons.empty();
+  buttons.append(
+    "<button class='deleteButton' id=" + trip.id + ">Delete</button>"
+  );
+}
+
+function attachTripListeners() {
+  $("ul#list-ul").on("click", "li", function () {
+    displayTripDetails(this.id);
+  });
+  $("#buttons").on("click", ".deleteButton", function () {
+    list.deleteTrip(this.id);
+    $("#trip-details").hide();
+  });
+}
+
+let list = new ListOfTrips();
+
 $(document).ready(function () {
-  let list = new ListOfTrips();
+  attachTripListeners();
   $("form#form1").submit(function (event) {
     event.preventDefault();
     const city = $("input#city").val();
@@ -77,5 +117,6 @@ $(document).ready(function () {
     );
     list.addTrip(newTrip);
     console.log(list.trips);
+    displayTrips(list);
   });
 });

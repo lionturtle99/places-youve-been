@@ -13,7 +13,7 @@ div.user-input {
 .highlight-section {
   display: grid;
 }
-.highlight-section h5 {
+div div h5 {
   text-align: center;
 }
 .output-container {
@@ -24,5 +24,11 @@ div.user-input {
   width: 60%;
 }
 .output-div {
-  border: solid green 1px;
+}
+.button {
+  margin: auto;
+  width: fit-content;
+}
+.hidden {
+  display: none;
 }
